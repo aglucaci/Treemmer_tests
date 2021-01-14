@@ -59,14 +59,24 @@ for fasta in p53/subsampled_fasta/*.fasta; do
         FastTree -gtr -nt $CODONOUTPUT > $treeOUTPUT
     fi
     
+    # SA - FEL
     felOUTPUT=$CODONOUTPUT".FEL.json"
-    
-    if [ -s $felOUTPUT ]; then
+    if [ -f $felOUTPUT ]; then
         echo "FEL output exists"
     else
         # Selection Analyses
         hyphy fel --alignment $CODONOUTPUT --tree $treeOUTPUT --output $CODONOUTPUT".FEL.json"
     fi
+    
+    # SA - FEL Internal branches
+    felOUTPUT=$CODONOUTPUT".FEL_internal.json"
+    if [ -f $felOUTPUT ]; then
+        echo "FEL internal output exists"
+    else
+        # Selection Analyses
+        hyphy fel --alignment $CODONOUTPUT --tree $treeOUTPUT --branches Internal --output $CODONOUTPUT".FEL_internal.json"
+    fi
+    
 
 done
 
