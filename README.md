@@ -5,6 +5,7 @@
       -Also runs Prune_nuc_and_protein.py (basedir)<br />
 2. run_treemmer.sh (run from Treemmer dir or modify) <br />
 3. Parse_Treemmer_Verbose2.ipynb <br />
+      -This creates an output at 'TP53_treemmer_verbose2.txt' <br/>
 4. CreateSubSampledUnalignedFasta.ipynb <br />
 5. run_subsampled.sh<br />
       -runs Prune_nuc_and_protein.py (basedir) <br />
